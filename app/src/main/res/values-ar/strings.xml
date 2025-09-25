@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">univPulse</string>
+    <string name="select_university">اختيار الجامعة</string>
+    <string name="select_campus">اختيار القطب</string>
+    <string name="my_university">جامعتي</string>
+    <string name="university" >الجامعة</string>
+    <string name="campus" >القطب</string>
+    <string name="select_teacher">اختيار استاذ</string>
+    <string name="notifications_center">مركز الاشعارات</string>
+    <string name="settings">الاعدادات</string>
+    <string name="log_out">تسجيل الخروج</string>
+    <string name="dark_mode">الوضع الليلي</string>
+    <string name="notifications">الاشعارات</string>
+    <string name="languages">اللغات</string>
+    <string name="privacy">الخصوصية</string>
+    <string name="bug_report">بلاغ عن مشكلة</string>
+    <string name="app_feedback">تقييم التطبيق</string>
+    <string name="prefences">المظهر</string>
+    <string name="privacy_and_security">الخصوصية والامان</string>
+    <string name="today">اليوم</string>
+    <string name="new_ntfs">اضاف اعلان جديد حول مادة الجبر</string>
+    <string name="time">قبل ساعتين</string>
+    <string name="teacher">الاستاذ بن صالح</string>
+    <string name="arabic">العربية</string>
+    <string name="myname">يونس عايد</string>
+    <string name="major">طالب سنة ثانية ماستر ذكاء اصطناعي</string>
+    <string name="confirm">تأكيد</string>
+    <string name="dismiss">إالغاء</string>
+    <string name="loggingout">تسجيل الخروج ؟</string>
+    <string name="confirm_logout">هل انت متاكد من تسجيل خروج حسابك ؟</string>
+    <string name="earlier">الاقدم</string>
+    <string name="english">الانجليزية</string>
+    <string name="title">العنوان</string>
+    <string name="post_content">هذا هو محتوى المنشور. يمكن أن يحتوي على عدة اسطر وصور .</string>
+    <string name="date">على 9:00 , 24 أكتوبر 2024</string>
+    <string name="select_language">اختر اللغة</string>
+    <string name="cancel">إلغاء</string>
+
+</resources>
