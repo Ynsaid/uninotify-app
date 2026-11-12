@@ -1,3 +1,6 @@
+package com.example.univpulse.Screens
+
+import PostItemCard
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -25,10 +28,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -55,7 +56,7 @@ fun Home(modifier: Modifier = Modifier) {
 
     ){
         Text(
-            text = "uniPulse",
+            text = "UniNotify",
             fontSize = 20.sp,
             fontFamily = FontFamily(Font(R.font.poppins_bold)),
             color = Color.Black,

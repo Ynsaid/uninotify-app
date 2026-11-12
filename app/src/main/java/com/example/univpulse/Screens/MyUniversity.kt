@@ -1,3 +1,6 @@
+package com.example.univpulse.Screens
+
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border

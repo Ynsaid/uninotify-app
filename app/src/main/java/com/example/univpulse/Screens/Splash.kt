@@ -29,7 +29,7 @@ fun Splash(navController: NavController) {
         contentAlignment = Alignment.Center
     ){
        Text(
-          text = "uniPulse",
+          text = "UniNotify",
            fontSize = 60.sp,
            fontFamily = FontFamily(Font(R.font.poppins_bold)),
            color = Color.White

@@ -1,3 +1,8 @@
+package com.example.univpulse.Screens
+
+
+import Notifications
+import Settings
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -8,6 +13,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable

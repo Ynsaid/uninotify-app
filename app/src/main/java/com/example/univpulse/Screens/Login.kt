@@ -1,3 +1,5 @@
+package com.example.univpulse.Screens
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -7,14 +9,14 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
-import androidx.compose.material3.Button
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -28,12 +30,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Color.Companion.White
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.Font
@@ -61,15 +63,14 @@ fun Login(navController: NavController) {
     var emailError by remember { mutableStateOf(false) }
     var passwordError by remember { mutableStateOf(false) }
     var showDialog by remember { mutableStateOf(false) }
-    // functoion of logging
-    fun loginUser(email: String, password: String, navController: NavController){
-        val auth =  FirebaseAuth.getInstance()
-        auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener  { task ->
-                if (task.isSuccessful) {
 
-                    navController.navigate(Route.Main){
-                        popUpTo(Route.Login){ inclusive = true } // clear backstack
+    fun loginUser(email: String, password: String, navController: NavController) {
+        val auth = FirebaseAuth.getInstance()
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    navController.navigate(Route.Main) {
+                        popUpTo(Route.Login) { inclusive = true }
                     }
                 } else {
                     println("error: ${task.exception?.message}")
@@ -78,15 +79,15 @@ fun Login(navController: NavController) {
             }
     }
 
-
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(Primary)
-    ){
+    ) {
+        // Top content
         Column(
             Modifier.fillMaxWidth()
-        ){
+        ) {
             Image(
                 painter = painterResource(id = R.drawable.books),
                 contentDescription = "books",
@@ -96,7 +97,7 @@ fun Login(navController: NavController) {
             )
             Text(
                 text = "Hello,",
-                fontSize = 64.sp,
+                fontSize = 58.sp,
                 fontFamily = FontFamily(Font(R.font.poppins_bold)),
                 color = Color.White,
                 modifier = Modifier.padding(start = 30.dp)
@@ -107,6 +108,7 @@ fun Login(navController: NavController) {
                 fontFamily = FontFamily(Font(R.font.poppins_bold)),
                 color = Color.White,
                 modifier = Modifier.padding(start = 30.dp)
+                    .offset(y = (-15).dp)
             )
             Image(
                 painter = painterResource(id = R.drawable.notification),
@@ -118,21 +120,22 @@ fun Login(navController: NavController) {
                     .rotate(-45f)
             )
         }
-        // column of inputs and btn
+
+        // Bottom white card
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(600.dp)
+                .wrapContentHeight() // <<< fixed here
                 .align(Alignment.BottomCenter)
                 .clip(RoundedCornerShape(topStart = 50.dp, topEnd = 50.dp))
                 .background(Color.White)
-        ){
+        ) {
             Text(
                 text = "Login",
                 fontSize = 36.sp,
                 fontFamily = FontFamily(Font(R.font.poppins_bold)),
                 color = Color.Black,
-                modifier = Modifier.padding(start = 30.dp, top =64.dp)
+                modifier = Modifier.padding(start = 30.dp, top = 64.dp)
             )
             Spacer(modifier = Modifier.height(16.dp))
 
@@ -150,7 +153,7 @@ fun Login(navController: NavController) {
                 isError = emailError,
                 colors = TextFieldDefaults.outlinedTextFieldColors(
                     containerColor = White,
-                    focusedBorderColor =  Primary,
+                    focusedBorderColor = Primary,
                     unfocusedBorderColor = SubTitle,
                     focusedLabelColor = Primary,
                     unfocusedLabelColor = SubTitle,
@@ -159,10 +162,11 @@ fun Login(navController: NavController) {
             if (emailError) {
                 Text(
                     text = "Email cannot be empty",
-                    color =Color.Red,
+                    color = Color.Red,
                     modifier = Modifier.padding(start = 30.dp, top = 4.dp)
                 )
             }
+
             Spacer(modifier = Modifier.height(16.dp))
 
             OutlinedTextField(
@@ -182,14 +186,14 @@ fun Login(navController: NavController) {
                 trailingIcon = {
                     IconButton(onClick = { isPasswordVisible = !isPasswordVisible }) {
                         Icon(
-                            painter = painterResource(id = if(isPasswordVisible) R.drawable.hide else R.drawable.show),
+                            painter = painterResource(id = if (isPasswordVisible) R.drawable.hide else R.drawable.show),
                             contentDescription = if (isPasswordVisible) "Hide password" else "Show password"
                         )
                     }
                 },
                 colors = TextFieldDefaults.outlinedTextFieldColors(
                     containerColor = White,
-                    focusedBorderColor =  Primary,
+                    focusedBorderColor = Primary,
                     unfocusedBorderColor = SubTitle,
                     focusedLabelColor = Primary,
                     unfocusedLabelColor = SubTitle,
@@ -214,14 +218,13 @@ fun Login(navController: NavController) {
                         password.isBlank() -> passwordError = true
                         else -> loginUser(email, password, navController)
                     }
-
                 },
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Primary,
                     contentColor = White
                 ),
                 shape = RoundedCornerShape(8.dp)
-            ){
+            ) {
                 Text(
                     text = "Login",
                     fontSize = 24.sp,
@@ -230,13 +233,12 @@ fun Login(navController: NavController) {
                 )
             }
 
-
             Text(
                 text = "Ministere de l’engeignement superieur et de la recherche scientifique",
                 fontSize = 12.sp,
                 fontFamily = FontFamily(Font(R.font.poppins_regular)),
                 color = SubTitle,
-                textAlign =  TextAlign.Center,
+                textAlign = TextAlign.Center,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 30.dp, end = 30.dp, top = 120.dp)
@@ -246,7 +248,7 @@ fun Login(navController: NavController) {
                 fontSize = 12.sp,
                 fontFamily = FontFamily(Font(R.font.poppins_regular)),
                 color = SubTitle,
-                textAlign =  TextAlign.Center,
+                textAlign = TextAlign.Center,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 30.dp, end = 30.dp, top = 10.dp)
@@ -259,12 +261,12 @@ fun Login(navController: NavController) {
             onDismissRequest = { showDialog = false },
             onConfirmation = { showDialog = false },
             dialogTitle = "Login Failed",
-            dialogText = "You are type the wrong info",
+            dialogText = "You typed the wrong info",
             icon = Icons.Default.Info
         )
     }
-
 }
+
 @Composable
 fun AlertDialogCustom(
     onDismissRequest: () -> Unit,
@@ -307,3 +309,4 @@ fun AlertDialogCustom(
         }
     )
 }
+

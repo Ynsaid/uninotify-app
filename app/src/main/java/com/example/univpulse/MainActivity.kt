@@ -1,6 +1,5 @@
 package com.example.univpulse
 
-import Home
 import Login
 import Main
 import Splash
@@ -34,7 +33,7 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                    NavHost(
                        navController = navController,
-                       startDestination = Route.Main,
+                       startDestination = Route.Splash,
                        modifier = Modifier.padding(innerPadding)
                    ){
                        composable(Route.Splash) { Splash(navController) }
