@@ -1,3 +1,6 @@
+package com.example.univpulse.screens
+
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,12 +17,13 @@ import androidx.navigation.NavController
 import com.example.univpulse.R
 import com.example.univpulse.ui.theme.Primary
 import kotlinx.coroutines.delay
+import kotlin.time.Duration.Companion.milliseconds
 
 @Composable
 fun Splash(navController: NavController) {
     LaunchedEffect(Unit) {
         while(true){
-            delay(2000)
+            delay(2000.milliseconds)
             navController.navigate(Route.OnBoarding1)
         }
     }

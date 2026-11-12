@@ -1,3 +1,6 @@
+package com.example.univpulse.screens
+
+
 import androidx.activity.ComponentActivity
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -6,7 +9,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ExitToApp
+import androidx.compose.material.icons.automirrored.filled.ExitToApp
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -15,12 +18,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -34,17 +35,16 @@ import com.google.firebase.auth.FirebaseAuth
 
 
 @Composable
-fun Settings(navController: NavHostController, rootNavController: NavController) {
+fun Settings(navController: NavHostController) {
 
 
     val context = LocalContext.current
-    var showDialog by remember { mutableStateOf(false) }
+
 
     val arabic = stringResource(R.string.arabic)
     val currentLang = LanguagesPreferences.getSavedLanguageCode(context)
-    var setFontSemiBold = if(currentLang == "ar") R.font.cairo_semibold else R.font.cairo_semibold
-    var setFontBold = if(currentLang == "ar") R.font.cairo_bold else R.font.poppins_bold
-    var setFontMedium = if(currentLang == "ar") R.font.cairo_medium else R.font.poppins_medium
+    val setFontBold = if(currentLang == "ar") R.font.cairo_bold else R.font.poppins_bold
+    val setFontMedium = if(currentLang == "ar") R.font.cairo_medium else R.font.poppins_medium
 
     var selectedLanguage by remember {
         mutableStateOf(
@@ -164,10 +164,8 @@ fun Settings(navController: NavHostController, rootNavController: NavController)
 fun SettingsSection(title: String, content: @Composable ColumnScope.() -> Unit) {
     val context = LocalContext.current
     val currentLang = LanguagesPreferences.getSavedLanguageCode(context)
-    var setFont = if(currentLang == "ar") R.font.cairo_semibold else R.font.poppins_medium
-    var setFontBold = if(currentLang == "ar") R.font.cairo_bold else R.font.poppins_bold
-    var setFontMedium = if(currentLang == "ar") R.font.cairo_bold else R.font.poppins_medium
-    var topPadding = if(title == "Privacy and Security" || title == "الخصوصية والامان") 16.dp else 0.dp
+    val setFontBold = if(currentLang == "ar") R.font.cairo_bold else R.font.poppins_bold
+    val topPadding = if(title == "Privacy and Security" || title == "الخصوصية والامان") 16.dp else 0.dp
     Text(
         text = title,
         fontSize = 16.sp,
@@ -213,7 +211,7 @@ fun SwitchItem(title: String) {
     var checked by remember { mutableStateOf(true) }
     val context = LocalContext.current
     val currentLang = LanguagesPreferences.getSavedLanguageCode(context)
-    var setFontMedium = if(currentLang == "ar") R.font.cairo_medium else R.font.poppins_medium
+    val setFontMedium = if(currentLang == "ar") R.font.cairo_medium else R.font.poppins_medium
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -245,7 +243,7 @@ fun SwitchItem(title: String) {
 fun ArrowItem(title: String) {
     val context = LocalContext.current
     val currentLang = LanguagesPreferences.getSavedLanguageCode(context)
-    var setFontMedium = if(currentLang == "ar") R.font.cairo_medium else R.font.poppins_medium
+    val setFontMedium = if(currentLang == "ar") R.font.cairo_medium else R.font.poppins_medium
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -277,15 +275,9 @@ fun LanguageItem(
     var selectedLanguage by remember { mutableStateOf(initialLanguage) }
     val context = LocalContext.current
     val languages = listOf("English", "Arabic")
-    val setLang = if (selectedLanguage == "Arabic") {
-        context.getString(R.string.arabic)
-    } else {
-        context.getString(R.string.english)
-    }
-
     val currentLang = LanguagesPreferences.getSavedLanguageCode(context)
-    var setFontSemiBold = if(currentLang == "ar") R.font.cairo_semibold else R.font.poppins_bold
-    var setFontMedium = if(currentLang == "ar") R.font.cairo_medium else R.font.poppins_medium
+    val setFontSemiBold = if(currentLang == "ar") R.font.cairo_semibold else R.font.poppins_bold
+    val setFontMedium = if(currentLang == "ar") R.font.cairo_medium else R.font.poppins_medium
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -385,8 +377,7 @@ fun LogoutDialog(
 ) {
     val context = LocalContext.current
     val currentLang = LanguagesPreferences.getSavedLanguageCode(context)
-    var setFontSemiBold = if(currentLang == "ar") R.font.cairo_semibold else R.font.poppins_bold
-    var setFontBold = if(currentLang == "ar") R.font.cairo_bold else R.font.poppins_medium
+    val setFontBold = if(currentLang == "ar") R.font.cairo_bold else R.font.poppins_medium
     AlertDialog(
         containerColor = Color.White,
         icon = { Icon(icon, contentDescription = "Icon") },
@@ -409,12 +400,9 @@ fun LogoutDialog(
 @Composable
 fun LogoutSection(navController: NavController) {
     var showDialog by remember { mutableStateOf(false) }
-    val arabic = stringResource(R.string.arabic)
     val context = LocalContext.current
     val currentLang = LanguagesPreferences.getSavedLanguageCode(context)
-    var setFontSemiBold = if(currentLang == "ar") R.font.cairo_semibold else R.font.cairo_semibold
-    var setFontBold = if(currentLang == "ar") R.font.cairo_bold else R.font.poppins_bold
-    var setFontMedium = if(currentLang == "ar") R.font.cairo_bold else R.font.poppins_medium
+    val setFontBold = if(currentLang == "ar") R.font.cairo_bold else R.font.poppins_bold
     if (showDialog) {
         LogoutDialog(
             onDismissRequest = { showDialog = false },
@@ -427,7 +415,7 @@ fun LogoutSection(navController: NavController) {
             },
             dialogTitle = stringResource(R.string.loggingout),
             dialogText = stringResource(R.string.confirm_logout),
-            icon = Icons.Default.ExitToApp
+            icon = Icons.AutoMirrored.Filled.ExitToApp
         )
     }
 
@@ -472,7 +460,7 @@ fun LogoutSection(navController: NavController) {
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Icon(
-                    imageVector = Icons.Default.ExitToApp,
+                    imageVector = Icons.AutoMirrored.Filled.ExitToApp,
                     contentDescription = "Logout",
                     tint = SubTitle
                 )

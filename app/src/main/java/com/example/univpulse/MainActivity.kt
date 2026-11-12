@@ -1,8 +1,6 @@
 package com.example.univpulse
 
-import Login
-import Main
-import Splash
+
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -15,6 +13,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.univpulse.onboarding.OnBoarding1
+import com.example.univpulse.screens.Login
+import com.example.univpulse.screens.Main
+import com.example.univpulse.screens.Splash
 import com.example.univpulse.ui.theme.UnivPulseTheme
 
 class MainActivity : ComponentActivity() {

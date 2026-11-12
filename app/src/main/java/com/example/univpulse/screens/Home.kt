@@ -1,4 +1,4 @@
-package com.example.univpulse.Screens
+package com.example.univpulse.screens
 
 import PostItemCard
 import androidx.compose.foundation.background
