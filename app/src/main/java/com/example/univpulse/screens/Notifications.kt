@@ -1,3 +1,5 @@
+package com.example.univpulse.screens
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -42,7 +44,6 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.univpulse.R
-import com.example.univpulse.ui.theme.Primary
 import com.example.univpulse.ui.theme.SubTitle
 import com.example.univpulse.ui.theme.SubTitle2
 
@@ -55,11 +56,10 @@ data class NotificationData(
 )
 
 @Composable
-fun Notifications(modifier: Modifier = Modifier) {
+fun Notifications() {
     val context = LocalContext.current
     val currentLang = LanguagesPreferences.getSavedLanguageCode(context)
     val setFontBold = if (currentLang == "ar") R.font.cairo_bold else R.font.poppins_bold
-    val setFontRegular = if (currentLang == "ar") R.font.cairo_bold else R.font.poppins_bold
     var expended by remember { mutableStateOf(false) }
     val isExpanded  = if(expended) Color.Unspecified else SubTitle
 

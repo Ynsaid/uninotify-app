@@ -1,7 +1,6 @@
 package com.example.univpulse.screens
 
 
-import PostItemCard
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -26,6 +25,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.univpulse.R
+import com.example.univpulse.components.PostItemCard
 import com.example.univpulse.ui.theme.GreenTitle
 import com.example.univpulse.ui.theme.Primary
 import com.example.univpulse.ui.theme.SubTitle2
