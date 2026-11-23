@@ -99,14 +99,14 @@ fun Login(navController: NavController) {
                 text = "Hello,",
                 fontSize = 58.sp,
                 fontFamily = FontFamily(Font(R.font.poppins_bold)),
-                color = Color.White,
+                color = White,
                 modifier = Modifier.padding(start = 30.dp)
             )
             Text(
                 text = "Welcome to uniPulse",
                 fontSize = 16.sp,
                 fontFamily = FontFamily(Font(R.font.poppins_bold)),
-                color = Color.White,
+                color = White,
                 modifier = Modifier.padding(start = 30.dp)
                     .offset(y = (-15).dp)
             )
@@ -128,7 +128,7 @@ fun Login(navController: NavController) {
                 .wrapContentHeight() // <<< fixed here
                 .align(Alignment.BottomCenter)
                 .clip(RoundedCornerShape(topStart = 50.dp, topEnd = 50.dp))
-                .background(Color.White)
+                .background(White)
         ) {
             Text(
                 text = "Login",
@@ -229,7 +229,7 @@ fun Login(navController: NavController) {
                     text = "Login",
                     fontSize = 24.sp,
                     fontFamily = FontFamily(Font(R.font.poppins_bold)),
-                    color = Color.White,
+                    color = White,
                 )
             }
 
@@ -276,7 +276,7 @@ fun AlertDialogCustom(
     icon: ImageVector,
 ) {
     androidx.compose.material3.AlertDialog(
-        containerColor = Color.White,
+        containerColor = White,
         icon = {
             Icon(icon, contentDescription = "Example Icon")
         },
