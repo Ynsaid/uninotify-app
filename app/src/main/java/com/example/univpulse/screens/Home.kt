@@ -23,6 +23,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -43,14 +44,11 @@ import com.example.univpulse.ui.theme.SubTitle2
 import com.example.univpulse.ui.theme.YellowTitle
 
 @Composable
-fun Home(modifier: Modifier = Modifier) {
+fun Home() {
     val dropdownItems = listOf(stringResource(R.string.select_university), stringResource(R.string.select_campus))
 
-    // set cairo font for arabic language
-    val context = LocalContext.current
-    val currentLang = LanguagesPreferences.getSavedLanguageCode(context)
-    var setFontSemiBold = if(currentLang == "ar") R.font.cairo_semibold else R.font.poppins_semibold
-    var setFontBold = if(currentLang == "ar") R.font.cairo_bold else R.font.poppins_bold
+
+
     Column(
       modifier = Modifier.fillMaxSize()
 
@@ -94,9 +92,8 @@ fun CustomDropdownMenu(
 ) {
     val context = LocalContext.current
     val currentLang = LanguagesPreferences.getSavedLanguageCode(context)
-    var setFontSemiBold = if(currentLang == "ar") R.font.cairo_semibold else R.font.poppins_semibold
-    var setFontBold = if(currentLang == "ar") R.font.cairo_bold else R.font.poppins_bold
-    var expandedIndex by remember { mutableStateOf(-1) }
+    val setFontSemiBold = if(currentLang == "ar") R.font.cairo_semibold else R.font.poppins_semibold
+    var expandedIndex by remember { mutableIntStateOf(-1) }
 
     Row(
         modifier = modifier
