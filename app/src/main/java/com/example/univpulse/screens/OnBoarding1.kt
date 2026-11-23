@@ -1,4 +1,4 @@
-package com.example.univpulse.onboarding
+package com.example.univpulse.screens
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.core.tween
@@ -17,7 +17,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -34,10 +34,12 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.navigation.NavController
 import com.example.univpulse.R
+import com.example.univpulse.Route
 import com.example.univpulse.ui.theme.Primary
 import com.example.univpulse.ui.theme.SubTitle
 import com.example.univpulse.ui.theme.SubTitle2
 import kotlinx.coroutines.delay
+import kotlin.time.Duration.Companion.milliseconds
 
 @Composable
 fun OnBoarding1(navController: NavController) {
@@ -57,12 +59,12 @@ fun OnBoarding1(navController: NavController) {
         "Get real-time notifications from your professors and university administration."
     )
 
-    var currentIndex by remember { mutableStateOf(0) }
+    var currentIndex by remember { mutableIntStateOf(0) }
 
 
     LaunchedEffect(Unit) {
         while (true) {
-            delay(3000)
+            delay(3000.milliseconds)
             currentIndex = (currentIndex + 1) % imgsList.size
         }
     }
@@ -101,7 +103,7 @@ fun OnBoarding1(navController: NavController) {
                     text = titleList[index],
                     fontSize = 26.sp,
                     fontFamily = FontFamily(Font(R.font.poppins_bold)),
-                    color = Color.White,
+                    color = White,
                     textAlign = TextAlign.Center,
                     modifier = Modifier
                         .fillMaxWidth()

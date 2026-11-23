@@ -48,6 +48,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.univpulse.R
+import com.example.univpulse.Route
 import com.example.univpulse.ui.theme.Primary
 import com.example.univpulse.ui.theme.SubTitle
 import com.example.univpulse.ui.theme.SubTitle2

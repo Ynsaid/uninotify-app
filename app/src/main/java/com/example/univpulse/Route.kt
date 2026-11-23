@@ -1,3 +1,5 @@
+package com.example.univpulse
+
 object Route{
     const val Splash = "splash"
     const val OnBoarding1 = "onboarding1"

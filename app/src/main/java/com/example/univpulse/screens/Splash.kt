@@ -15,6 +15,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.univpulse.R
+import com.example.univpulse.Route
 import com.example.univpulse.ui.theme.Primary
 import kotlinx.coroutines.delay
 import kotlin.time.Duration.Companion.milliseconds

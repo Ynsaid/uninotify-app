@@ -12,9 +12,9 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.univpulse.onboarding.OnBoarding1
 import com.example.univpulse.screens.Login
 import com.example.univpulse.screens.Main
+import com.example.univpulse.screens.OnBoarding1
 import com.example.univpulse.screens.Splash
 import com.example.univpulse.ui.theme.UnivPulseTheme
 

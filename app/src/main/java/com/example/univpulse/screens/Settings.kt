@@ -431,7 +431,7 @@ fun LogoutSection(navController: NavController) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(IntrinsicSize.Min), // make Box fill the height of the Row
+                .height(IntrinsicSize.Min),
             verticalAlignment = Alignment.CenterVertically
         ) {
 
